@@ -1,6 +1,3 @@
-require 'sinatra'
-require 'json'
-
 post '/packer' do
     
     #Allows same origin policy
