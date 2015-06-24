@@ -12,7 +12,7 @@ var json1=JSON.stringify(json);
 //Post the JSON to server
 $.ajax({
         //URL of server
-        url: 'http://localhost:4567/',
+        url: 'http://localhost:4567/packer',
         //Post Method
         method: 'POST',
         //Data is json1 JSON file
