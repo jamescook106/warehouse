@@ -4,7 +4,8 @@ var json = {};
 
 $.support.cors = true;
 
-json["UID000"]=1;
+json["Packer_ID"]=1;
+json["Packing_Code"]=2;
 
 //Convert the json variable into JSON
 var json1=JSON.stringify(json);
@@ -16,10 +17,5 @@ $.ajax({
         method: 'POST',
         //Data is json1 JSON file
         data: json1
-        }).done(function (response) {
-                //Parse the response JSON into JS
-                var JSON11 = JSON.parse(response);
-                //Put the response into the HTML
-                document.getElementById('test').innerHTML = JSON11.sort();
-                });
+        }).done(function (response) {});
 
