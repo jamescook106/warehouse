@@ -3,6 +3,8 @@
 //This is the JS for the packing page. It takes a harcoded packer ID and submits it with
 //the packing_code
 
+document.getElementById("PC").focus();
+
 //Create the object to store the json information
 //Not currently in json format
 var json = {};
@@ -34,4 +36,10 @@ $.ajax({
         //Data is json1 JSON file
         data: json1
         }).done(function (response) {});
+    document.getElementById('PC').focus();
+        document.getElementById('PC').value = "";
 };
+
+
+
+
