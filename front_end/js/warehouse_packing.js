@@ -9,13 +9,30 @@ var json = {};
 
 document.getElementById("PC").focus();
 
-$("#PC").keyup(function(event){
-               if(event.keyCode == 13){
-               $("#btSubmit").click();
-               }
+var str = ""
+//The hard coded packer_id
+json["Packer_ID"]=1;
+
+
+$('#PC1').on('submit', function(e){
+             var PC = document.getElementById("PC");
+             str=PC.value;
+             json["Packing_Code"]=str;
+             var json1=JSON.stringify(json);
+                 e.preventDefault();
+                 $.ajax({
+                        url: 'http://localhost:4568/packer',
+                        //Post Method
+                        method: 'POST',
+                        //Data is json1 JSON file
+                        data: json1,
+                        success: function() {
+                        alert('success');
+                        }
                         });
-
-
+             document.getElementById('PC').focus();
+             document.getElementById('PC').value = "";
+                 });
 
 //The variable for the button press
 var elem = document.getElementById('btSubmit');
@@ -23,29 +40,12 @@ var elem = document.getElementById('btSubmit');
 //Enables cross site scripting
 $.support.cors = true;
 
-//The hard coded packer_id
-json["Packer_ID"]=1;
+
 
 //Post the JSON to server when the submit button is hit
 elem.onclick=function()
 {
-    //Get the value of the packing_code from the submitted barcode
-    var PC = document.getElementById("PC");
-    json["Packing_Code"]=PC.value;
     
-    //Convert the json variable into JSON
-    var json1=JSON.stringify(json);
-    
-$.ajax({
-        //URL of server
-        url: 'http://localhost:4568/packer',
-        //Post Method
-        method: 'POST',
-        //Data is json1 JSON file
-        data: json1
-        }).done(function (response) {});
-    document.getElementById('PC').focus();
-        document.getElementById('PC').value = "";
 };
 
 
