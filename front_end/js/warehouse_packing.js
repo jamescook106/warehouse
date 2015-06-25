@@ -10,10 +10,9 @@ var json = {};
 document.getElementById("PC").focus();
 
 $("#PC").keyup(function(event){
-                          if(event.keyCode == 13){
-                          $("#btSubmit").click();
-               return false;
-                          }
+               if(event.keyCode == 13){
+               $("#btSubmit").click();
+               }
                         });
 
 
