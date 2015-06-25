@@ -3,11 +3,20 @@
 //This is the JS for the packing page. It takes a harcoded packer ID and submits it with
 //the packing_code
 
-document.getElementById("PC").focus();
-
 //Create the object to store the json information
 //Not currently in json format
 var json = {};
+
+document.getElementById("PC").focus();
+
+$("#PC").keyup(function(event){
+                          if(event.keyCode == 13){
+                          $("#btSubmit").click();
+               return false;
+                          }
+                        });
+
+
 
 //The variable for the button press
 var elem = document.getElementById('btSubmit');
@@ -22,7 +31,7 @@ json["Packer_ID"]=1;
 elem.onclick=function()
 {
     //Get the value of the packing_code from the submitted barcode
-    var PC = document.getElementById('PC');
+    var PC = document.getElementById("PC");
     json["Packing_Code"]=PC.value;
     
     //Convert the json variable into JSON
