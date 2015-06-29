@@ -13,9 +13,13 @@ post '/packer' do
 end
 
 get '/shipping' do
+    
+    puts '/shipping get'
 
 end
 
 post 'shipping' do
+    
+    puts '/shipping post'
 
 end
