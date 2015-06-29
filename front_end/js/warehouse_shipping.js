@@ -19,6 +19,7 @@ $('#SH1').on('submit', function(e){
              var SH = document.getElementById("SH");
              
              json["Shipping ID"]=SH.value;
+             json["DT"]=Date.now();
              var json1=JSON.stringify(json);
              
              //Variable for the GET request with textbox entry value
