@@ -45,10 +45,10 @@ $('#PC1').on('submit', function(e){
                     data: json1
                     }).done(function (response) {
                             //Parse the response JSON into JS
-                            var JSON11 = JSON.parse(response);
-                            alert(JSON11);
+                            //var JSON11 = JSON.parse(response);
+                            //alert(JSON11);
                             //Put the response into the HTML
-                            document.getElementById('test').innerHTML = JSON11;
+                            //document.getElementById('test').innerHTML = JSON11;
                             });
              
              //Refocus the user back to the input form
