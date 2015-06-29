@@ -36,14 +36,20 @@ $('#PC1').on('submit', function(e){
              e.preventDefault();
              
              //Post the json to the server
-                 $.ajax({
-                        url: 'http://localhost:4568/packer',
-                        //Post Method
-                        method: 'POST',
-                        //Data is json1 JSON file
-                        data: json1,
-                        success: function() {}
-                        });
+             $.ajax({
+                    //URL of server
+                    url: 'http://localhost:4568/packer',
+                    //Post Method
+                    method: 'POST',
+                    //Data is json1 JSON file
+                    data: json1
+                    }).done(function (response) {
+                            //Parse the response JSON into JS
+                            var JSON11 = JSON.parse(response);
+                            alert(JSON11);
+                            //Put the response into the HTML
+                            document.getElementById('test').innerHTML = JSON11;
+                            });
              
              //Refocus the user back to the input form
              document.getElementById('PC').focus();
