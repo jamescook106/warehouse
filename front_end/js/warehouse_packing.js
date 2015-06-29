@@ -25,6 +25,10 @@ $('#PC1').on('submit', function(e){
              //Write it to the json array
              json["Packing_Code"]=PC.value;
              
+             //This adds a packing date as the number of milliseconds passed
+             //since 1 January 1970 00:00:00 UTC
+             json["DT"]=Date.now();
+             
              //Convert var json to json
              var json1=JSON.stringify(json);
              

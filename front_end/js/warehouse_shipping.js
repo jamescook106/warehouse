@@ -1,3 +1,8 @@
+//warehouse_shipping.js
+//James Cook
+//This is the JS for the shipping side of the app
+
+//Focus the user on the textbox (useful for the scanner)
 document.getElementById('SH').focus();
 
 //Enables cross site scripting
@@ -6,7 +11,6 @@ $.support.cors = true;
 //Create the object to store the json information
 //Not currently in json format
 var json = {};
-json["Test"]="test";
 
 //The submit subroutine
 $('#SH1').on('submit', function(e){
@@ -14,20 +18,20 @@ $('#SH1').on('submit', function(e){
              //Get the value of the input box before submit
              var SH = document.getElementById("SH");
              
-             //The hard coded packer_id
              json["Shipping ID"]=SH.value;
              var json1=JSON.stringify(json);
              
+             //Variable for the GET request with textbox entry value
              var url_str = 'http://localhost:4568/shipping/' +SH.value;
+             
              //Prevent default behaviour
              e.preventDefault();
              
              //Post the json to the server
              $.ajax({
                     url: url_str,
-                    //Post Method
+                    //GET Method
                     method: 'GET',
-                    //Data is json1 JSON file
                     success: function() {}
                     });
              
