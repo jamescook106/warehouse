@@ -12,12 +12,9 @@ post '/packer' do
     
 end
 
-get '/shipping' do
-    #Allows same origin policy
-    response.headers['Access-Control-Allow-Origin'] = '*'
+get '/shipping/:SID' do |n|
     puts '/shipping get'
-    params1 = JSON.parse(request.env["rack.input"].read)
-    puts params1
+    puts n
 
 end
 

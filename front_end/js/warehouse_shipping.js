@@ -18,15 +18,15 @@ $('#SH1').on('submit', function(e){
              json["Shipping ID"]=SH.value;
              var json1=JSON.stringify(json);
              
+             var url_str = 'http://localhost:4568/shipping/' +SH.value;
              //Prevent default behaviour
              e.preventDefault();
              
              //Post the json to the server
              $.ajax({
-                    url: 'http://localhost:4568/shipping',
+                    url: url_str,
                     //Post Method
                     method: 'GET',
-                    data: json1,
                     //Data is json1 JSON file
                     success: function() {}
                     });
