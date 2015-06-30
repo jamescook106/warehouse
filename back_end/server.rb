@@ -1,6 +1,8 @@
-#Server.rb
-#James Cook
-#This is the server code for the project. To run the project, run ruby main.rb
+##############################################
+#### Server.rb
+#### James Cook
+#### This is the server code for the project. To run the project, run ruby main.rb
+##############################################
 
 #Sets the port to 4568
 set :port, 4568
@@ -17,8 +19,9 @@ post '/packer' do
     #Print the json to terminal for test purposes
     puts params
 
+    #Return the parameters as json (currenlty not used on front-end)
     params.to_json
-    
+
 end
 
 #This is the GET request from the shipping page
@@ -26,6 +29,8 @@ get '/shipping/:SID' do |n|
     
     #Print to terminal for test purposes
     puts '/shipping get'
+    
+    #Print the submitted code to terminal
     puts n
 
 end
@@ -39,8 +44,10 @@ post '/shipping' do
     #Print to terminal for test purposes
     puts '/shipping post'
     
-    #Parse and print Json 
+    #Parse Json Input
     params2 = JSON.parse(request.env["rack.input"].read)
+    
+    #Print Json input to terminal
     puts params2
 
 end
