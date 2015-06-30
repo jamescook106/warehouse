@@ -18,8 +18,16 @@ $.support.cors = true;
 //Not currently in json format
 var json = {};
 
+$('#SH1').submit(function() {
+                 document.getElementById('SH_CI').focus();
+                 return false;
+                 });
+
 //The submit subroutine
-$('#SH1').on('submit', function(e){
+$('#SH3').on('submit', function(e){
+             
+             if (document.getElementById('SH_CI').value==document.getElementById('SH').value)
+             {
              
              //Get the value of the input box before submit
              var SH = document.getElementById("SH");
@@ -47,6 +55,15 @@ $('#SH1').on('submit', function(e){
              
              //Refocus the user back to the input form
              document.getElementById('SH_CF').focus();
+             }
+             else
+             {
+             alert("Customer ID does not match box code");
+             document.getElementById('SH').value = "";
+             document.getElementById('SH').focus();
+             document.getElementById('SH_CI').value = "";
+             return false;
+             }
              
              });
 
@@ -66,6 +83,7 @@ $('#SH2').submit(function() {
                  document.getElementById('SH').value = "";
                  //Clear the input field
                  document.getElementById('SH_CF').value = "";
+                 document.getElementById('SH_CI').value = "";
                  
                  $.ajax({
                         url: 'http://localhost:4568/shipping',
@@ -75,6 +93,7 @@ $('#SH2').submit(function() {
                         data: json1,
                         success: function() {}
                         });
+                 document.getElementById('test').innerHTML=""
                  }
                  else{
                  alert("FALSE");
