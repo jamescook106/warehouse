@@ -10,11 +10,14 @@ $.support.cors = true;
 //Not currently in json format
 var json = {};
 
-//This focuses the user straight to the input field
-document.getElementById("PC").focus();
+//This focuses the user straight to the packer_ID input field
+document.getElementById("PC_ID").focus();
 
-//The hard coded packer_id
-json["Packer_ID"]=1;
+//Stops the packer_ID from submitting and refocuses it to the barcode section
+$('#PC2').submit(function() {
+                 document.getElementById('PC').focus();
+                 return false;
+                   });
 
 //The submit subroutine
 $('#PC1').on('submit', function(e){
@@ -28,6 +31,9 @@ $('#PC1').on('submit', function(e){
              //This adds a packing date as the number of milliseconds passed
              //since 1 January 1970 00:00:00 UTC
              json["DT"]=Date.now();
+             
+             //Sets the packer_id to be that of the input form
+             json["Packer_ID"]=PC_ID.value;
              
              //Convert var json to json
              var json1=JSON.stringify(json);
