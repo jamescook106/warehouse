@@ -43,18 +43,45 @@ $('#SH1').on('submit', function(e){
                     success: function(data) {document.getElementById('test').innerHTML = data;}
                     });
              
-             $.ajax({
-                    url: 'http://localhost:4568/shipping',
-                    //Post Method
-                    method: 'POST',
-                    //Data is json1 JSON file
-                    data: json1,
-                    success: function() {}
-                    });
+             
              
              //Refocus the user back to the input form
-             document.getElementById('SH').focus();
+             document.getElementById('SH_CF').focus();
              
-             //Clear the input field
-             document.getElementById('SH').value = "";
              });
+
+$('#SH2').submit(function() {
+                 
+                 if (document.getElementById('SH_CF').value==3131910018889)
+                 {
+                 var SH = document.getElementById("SH");
+                 
+                 json["Packer_ID"]=PC_ID.value;
+                 json["Shipping ID"]=SH.value;
+                 json["DT"]=Date.now();
+                 var json1=JSON.stringify(json);
+                 
+                 document.getElementById('SH').focus();
+                 //Clear the input field
+                 document.getElementById('SH').value = "";
+                 //Clear the input field
+                 document.getElementById('SH_CF').value = "";
+                 
+                 $.ajax({
+                        url: 'http://localhost:4568/shipping',
+                        //Post Method
+                        method: 'POST',
+                        //Data is json1 JSON file
+                        data: json1,
+                        success: function() {}
+                        });
+                 }
+                 else{
+                 alert("FALSE");
+                 document.getElementById('SH_CF').focus();
+                 document.getElementById('SH_CF').value = "";
+                 }
+                
+                 
+                 return false;
+                 });

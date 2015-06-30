@@ -33,7 +33,7 @@ get '/shipping/:SID' do |n|
     #Print the submitted code to terminal
     puts n
     
-    "Get Request Success"
+    "Customisations will go here"
 
 end
 
