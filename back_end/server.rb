@@ -18,9 +18,6 @@ post '/packer' do
     
     #Print the json to terminal for test purposes
     puts params
-    
-    #Return the parameters as json (currenlty not used on front-end)
-    params.to_json
 
 end
 
