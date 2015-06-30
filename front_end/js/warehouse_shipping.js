@@ -2,8 +2,14 @@
 //James Cook
 //This is the JS for the shipping side of the app
 
-//Focus the user on the textbox (useful for the scanner)
-document.getElementById('SH').focus();
+//This focuses the user straight to the packer_ID input field
+document.getElementById("PC_ID").focus();
+
+//Stops the packer_ID from submitting and refocuses it to the barcode section
+$('#PC2').submit(function() {
+                 document.getElementById('SH').focus();
+                 return false;
+                 });
 
 //Enables cross site scripting
 $.support.cors = true;
@@ -18,6 +24,7 @@ $('#SH1').on('submit', function(e){
              //Get the value of the input box before submit
              var SH = document.getElementById("SH");
              
+             json["Packer_ID"]=PC_ID.value;
              json["Shipping ID"]=SH.value;
              json["DT"]=Date.now();
              var json1=JSON.stringify(json);
