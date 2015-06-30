@@ -40,7 +40,7 @@ $('#SH1').on('submit', function(e){
                     url: url_str,
                     //GET Method
                     method: 'GET',
-                    success: function() {}
+                    success: function(data) {document.getElementById('test').innerHTML = data;}
                     });
              
              $.ajax({
