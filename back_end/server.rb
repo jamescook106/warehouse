@@ -65,5 +65,7 @@ post '/shipping' do
     
     #Print Json input to terminal
     puts params2
+    
+    "Succes"
 
 end

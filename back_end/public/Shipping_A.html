@@ -63,6 +63,14 @@
           {{ message }}
           </div>
       </div>
+      <div ng-controller="packing_id_controller" >
+          <form ng-submit="myForm.submitPackingId()">
+              <input type="text" id="packing_id" name="packing_id" ng-model="myForm.packing_id">
+          </form>
+          <div class="panel">
+          {{ message }}
+          </div>
+      </div>
     </div>
     <div class="small-12 columns">
       <a href="Index_A.html" class="button expand">Home</a>

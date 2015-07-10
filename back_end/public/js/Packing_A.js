@@ -92,12 +92,35 @@ S_A.controller("shipping_id_controller", function($scope,$rootScope, $http) {
 
     $scope.myForm.submitShippingId = function(item, event) {
       console.log("--> Submitting Packing ID");
+      $rootScope.shipping_id=$scope.myForm.shipping_id;
       var shipping_id_var = './shipping/'+ $scope.myForm.shipping_id;
       $http.get(shipping_id_var)
       .success(function(data, status, headers, config) {
         $scope.message=data;
         console.log(data);
+        $("#packing_id").focus(); 
         })
       .error(function(data, status, headers, config) {});  
+    };
+  });
+
+S_A.controller("packing_id_controller", function($scope,$rootScope, $http) {
+
+    $scope.myForm = {};
+    $scope.myForm.packing_id="";
+
+    $scope.myForm.submitPackingId = function(item, event) {
+      console.log("--> Submitting Packing ID");
+      var dataObj={packing_id:$scope.myForm.packing_id, packer_id:$rootScope.packer_id, shipping_id:$rootScope.shipping_id};
+      $http.post('/shipping', dataObj)
+        .success(function(data, status, headers, config) {
+          $scope.message=data;
+          $("#shipping_id").focus();
+          $scope.myForm.packing_id="";
+          document.getElementById('shipping_id').value = "";
+        })
+        .error(function(data, status, headers, config) {
+        });
+    
     };
   });
