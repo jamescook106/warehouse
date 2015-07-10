@@ -7,6 +7,22 @@
 #Sets the port to 4568
 set :port, 4568
 
+#This is the GET request from the shipping page
+get '/packer/:SID' do |n|
+    
+    #Allows same origin policy
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    
+    #Print to terminal for test purposes
+    puts '/packer get'
+    
+    #Print the submitted code to terminal
+    puts n
+    
+    "Success"
+end
+
+
 #Packer subroutine which Assigns a packer ID, Date and Time to a box ID when packed
 post '/packer' do
     
@@ -18,6 +34,7 @@ post '/packer' do
     
     #Print the json to terminal for test purposes
     puts params
+    "Success"
 
 end
 
