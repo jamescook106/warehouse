@@ -1,114 +1,76 @@
 <!DOCTYPE html>
-<html ng-app>
+<html lang="en">
 
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WPSM | Shipping</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WPSM | Shipping</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <script src="js/vendor/modernizr.js"></script>
-    </head>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <script src="js/vendor/modernizr.js"></script>
+</head>
 
-<body>
-	<nav class="top-bar" data-topbar role="navigation">
-  		<ul class="title-area">
-    		<li class="name">
-      			<h1><a href="Index_A.html">WPSM</a></h1>
-    		</li>
-    		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  		</ul>
+<body ng-app="shipping_app">
 
-  		<section class="top-bar-section">
-			<ul class="left">
-    			<li class="divider"></li>
-      			<li><a href='Index_A.html'>Home</a></li>
-      			<li class="divider"></li>
-      			<li><a href="Packing_A.html">Packing</a></li>
-      			<li class="divider"></li>
-      			<li><a href="Shipping_A.html">Shipping</a></li>
-      			<li class="divider"></li>
-      			<li><a href="Help_A.html">Help</a></li>
-      			<li class="divider"></li>
-    		</ul>
-  		</section>
-	</nav>
+  <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+            <h1><a href="Index_A.html">WPSM</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-	<div class="row">
-    <div class="small-12 columns">
-      <p> 
-      </p>
-    </div>
-    <div class="large-12 columns">
-      <div class='panel callout radius'>
-        <h1>Shipping</h1>
-      </div>
-    </div>
-  </div>
+      <section class="top-bar-section">
+      <ul class="left">
+          <li class="divider"></li>
+            <li><a href='Index_A.html'>Home</a></li>
+            <li class="divider"></li>
+            <li><a href="Packing_A.html">Packing</a></li>
+            <li class="divider"></li>
+            <li><a href="Shipping_A.html">Shipping</a></li>
+            <li class="divider"></li>
+            <li><a href="Help_A.html">Help</a></li>
+            <li class="divider"></li>
+        </ul>
+      </section>
+  </nav>
 
-  <form id='F_Packer_ID'>
-    <div class="row">
+  <div class="row">
       <div class="small-12 columns">
-        <label>
-          <input type="text" id="I_Packer_ID" placeholder="Packer ID"/>
-        </label>
+          <p> </p>
       </div>
-    </div>
-  </form>
-
-  <div class="row">
-    <div class="small-12 columns">
-      <div class="panel">
-        <p><div id="TB_Packer_ID"></div></p>
-      </div>
-    </div>
-  </div>
-        
-  <form id='F_Shipping_Code'>
-    <div class="row">
       <div class="small-12 columns">
-        <label>
-          <input type="text" id="I_Shipping_Code" placeholder="Shipping Code"/>
-        </label>
+          <div class="panel callout radius">
+            <h1>Shipping</h1>
+          </div>
       </div>
-    </div>
-  </form>
-
-  <div class="row">
-    <div class="small-12 columns">
-      <div class="panel">
-        <p><div id="TB_customisations"></div></p>
-      </div>
-    </div>
-  </div>
-                
-  <form id='F_Packing_Code'>
-    <div class="row">
       <div class="small-12 columns">
-        <label>
-          <input type="text" id="I_Packing_Code" placeholder="Packing Code" />
-        </label>
-      </div>
-    </div>
-  </form>
-        
-  <div class="row">
-    <div class="small-12 columns">
-      <div class="panel">
-        <p><div id="TB_success_or_failure"></div></p>
-      </div>
-    </div>
-  </div>
+      <div ng-controller="packer_id_controller" >
+          <form ng-submit="myForm.submitPackerId()">
+              <input type="text" id="packer_id" name="packer_id" ng-model="myForm.packer_id">
+          </form>
 
-  <div class="row">
+        <div class="panel">
+          {{ message }}
+          </div>
+      </div>
+      <div ng-controller="shipping_id_controller" >
+          <form ng-submit="myForm.submitShippingId()">
+              <input type="text" id="shipping_id" name="shipping_id" ng-model="myForm.shipping_id">
+          </form>
+          <div class="panel">
+          {{ message }}
+          </div>
+      </div>
+    </div>
     <div class="small-12 columns">
       <a href="Index_A.html" class="button expand">Home</a>
     </div>
-  </div>
-
-	<script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  <script> $(document).foundation();</script>
+    </div>
+<script src="js/Packing_A.js"></script>
+<script src="js/foundation.min.js"></script>
+<script> $(document).foundation();</script>
 </body>
+
 </html>
