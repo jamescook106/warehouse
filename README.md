@@ -3,4 +3,4 @@ This is a test app that will receive information from a handheld barcode scanner
 #Install
 After forking and cloning this repository <kbd>bundle install</kbd> to install all of the required gems.
 #Usage
-To run the app, <kbd> cd back_end </kbd> and then <kbd> ruby main.rb </kbd>. Next go to localhost:4568/index.html to access the homepage of the app.
+To run the app, <kbd> cd back_end </kbd> and then <kbd> ruby main.rb </kbd>. Next go to <kbd>localhost:4568/index.html</kbd> to access the homepage of the app.
