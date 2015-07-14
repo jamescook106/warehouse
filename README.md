@@ -1,5 +1,5 @@
 # Warehouse
-This is a test app that will receive information from a handheld barcode scanner, via bluetooth, and then communicate this result with a database. The front end is written in angular and utilises the foundation framework. The back end is written in ruby and uses the sinatra gem.
+TEST APP BEFORE MERGING INTO LABELLING - This is a test app that will receive information from a handheld barcode scanner, via bluetooth, and then communicate this result with a database. The front end is written in angular and utilises the foundation framework. The back end is written in ruby and uses the sinatra gem. 
 #Install
 After forking and cloning this repository <kbd>bundle install</kbd> to install all of the required gems.
 #Usage

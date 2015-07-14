@@ -42,7 +42,7 @@ var P_A=angular.module("packing_app", []);
       .success(function(data, status, headers, config) {
 
         //Place the return data into the html
-        $scope.message=data;
+        $scope.message=data.first_name;
 
         //Console Log for development purposes
         //console.log(data);
@@ -54,7 +54,7 @@ var P_A=angular.module("packing_app", []);
       .error(function(data, status, headers, config) {
           console.log(status);
           if (data=404){
-            $scope.message="Blank Packer ID submitted";
+            $scope.message=data.error;
           }
           if (data!=404){
             $scope.message="Unknown error";
